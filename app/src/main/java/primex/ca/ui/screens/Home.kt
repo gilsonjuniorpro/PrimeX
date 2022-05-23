@@ -75,7 +75,7 @@ fun Home(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF180E36))
+            .background(Color(0xFF000000))
     ) {
         ProfileAndSearchBar(navigator!!, homeViewModel)
         NestedScroll(navigator = navigator, homeViewModel, watchListViewModel)
@@ -89,7 +89,7 @@ fun ProfileAndSearchBar(
 ) {
     Row(
         modifier = Modifier
-            .padding(top = 12.dp, bottom = 4.dp, start = 8.dp, end = 8.dp)
+            .padding(top = 12.dp, bottom = 4.dp, start = 0.dp, end = 0.dp)
             .fillMaxWidth()
             .padding(start = 8.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -148,7 +148,7 @@ fun ProfileAndSearchBar(
             ) {
                 filmTypes.forEachIndexed { index, filmType ->
                     Text(
-                        text = if (filmType == FilmType.MOVIE) "Movies " else " Tv Shows",
+                        text = if (filmType == FilmType.MOVIE) "Movies " else " Series",
                         fontWeight = if (selectedFilmType == filmTypes[index]) FontWeight.Bold else Light,
                         fontSize = if (selectedFilmType == filmTypes[index]) 24.sp else 16.sp,
                         color = if (selectedFilmType == filmTypes[index])
@@ -171,8 +171,8 @@ fun ProfileAndSearchBar(
 
             val animOffset = animateDpAsState(
                 targetValue = when (filmTypes.indexOf(selectedFilmType)) {
-                    0 -> (-45).dp
-                    else -> 25.dp
+                    0 -> (-30).dp
+                    else -> 40.dp
                 },
                 animationSpec = spring(
                     dampingRatio = Spring.DampingRatioMediumBouncy
@@ -223,6 +223,7 @@ fun NestedScroll(
     val recommendedFilms = homeViewModel.recommendedMovies.value.collectAsLazyPagingItems()
     val myWatchList =
         watchListViewModel.watchList.value.collectAsStateLifecycleAware(initial = emptyList())
+    val spaceBetweenLines = 4.dp
 
     LaunchedEffect(key1 = myWatchList.value.size) {
         if (myWatchList.value.isNotEmpty()) {
@@ -242,6 +243,8 @@ fun NestedScroll(
             .fillMaxSize()
     ) {
         item {
+            Spacer(modifier = Modifier.height(spaceBetweenLines))
+
             Text(
                 text = "Genres",
                 fontSize = 24.sp,
@@ -274,6 +277,8 @@ fun NestedScroll(
         }
 
         item {
+            Spacer(modifier = Modifier.height(spaceBetweenLines))
+
             Text(
                 text = "Trending",
                 fontSize = 24.sp,
@@ -294,6 +299,8 @@ fun NestedScroll(
         }
 
         item {
+            Spacer(modifier = Modifier.height(spaceBetweenLines))
+
             Text(
                 text = "Popular",
                 fontSize = 24.sp,
@@ -313,6 +320,8 @@ fun NestedScroll(
         }
 
         item {
+            Spacer(modifier = Modifier.height(spaceBetweenLines))
+
             Text(
                 text = "Top Rated",
                 fontSize = 24.sp,
@@ -332,6 +341,8 @@ fun NestedScroll(
         }
 
         item {
+            Spacer(modifier = Modifier.height(spaceBetweenLines))
+
             Text(
                 text = "Now Playing",
                 fontSize = 24.sp,
@@ -352,6 +363,8 @@ fun NestedScroll(
 
         if (homeViewModel.selectedFilmType.value == FilmType.MOVIE) {
             item {
+                Spacer(modifier = Modifier.height(spaceBetweenLines))
+
                 Text(
                     text = "Upcoming",
                     fontSize = 24.sp,
@@ -398,6 +411,8 @@ fun NestedScroll(
 
         if (backInTheDays.itemCount != 0) {
             item {
+                Spacer(modifier = Modifier.height(spaceBetweenLines))
+
                 ShowAboutCategory(
                     name = "Back in the Days",
                     description = "Films released between 1940 and 1980"
@@ -466,7 +481,7 @@ fun MovieItem(
                     )
                 }
             },
-            previewPlaceholder = R.drawable.popcorn,
+            previewPlaceholder = R.drawable.ic_background_profile,
             contentScale = Crop,
             circularReveal = CircularReveal(duration = 1000),
             modifier = modifier.clip(RoundedCornerShape(8.dp)),
@@ -575,7 +590,7 @@ fun SelectableGenreChip(
 ) {
 
     val animateChipBackgroundColor by animateColorAsState(
-        targetValue = if (selected) Color(0xFFA0A1C2) else ButtonColor.copy(alpha = 0.5F),
+        targetValue = if (selected) Color(0xFFFFC107) else ButtonColor.copy(alpha = 0.5F),
         animationSpec = tween(
             durationMillis = if (selected) 100 else 50,
             delayMillis = 0,

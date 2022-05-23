@@ -6,6 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -38,21 +39,6 @@ import primex.ca.util.collectAsStateLifecycleAware
 import primex.ca.viewmodel.SearchViewModel
 import primex.ca.viewmodel.WatchListViewModel
 import timber.log.Timber
-
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.*
-import androidx.compose.material.icons.filled.Delete
-import androidx.compose.runtime.*
-import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 
 
 @OptIn(ExperimentalMaterialApi::class, ExperimentalFoundationApi::class)
@@ -150,7 +136,7 @@ fun WatchList(
                         width = 1.dp, color = ButtonColor,
                         shape = RoundedCornerShape(4.dp)
                     )
-                    .background(ButtonColor.copy(alpha = 0.25F))
+                    .background(Color(0xFF000000))
             ) {
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -185,9 +171,6 @@ fun WatchList(
                     onDismiss = {
                         watchListViewModel.removeFromWatchList(film.mediaId)
                         totalDismissed += 1
-                        // FIXME: Find another way to fix swipe after searching
-                        // searchViewModel.searchParam.value = ""
-                        // searchViewModel.previousSearch.value = ""
                     }) {
                     SearchResultItem(
                         title = film.title,
@@ -205,7 +188,12 @@ fun WatchList(
         if (totalDismissed == 3 && openDialog && currentList.value.size > 1) {
             AlertDialog(
                 title = { Text(text = "Delete All") },
-                text = { Text(text = "Would you like to clear your watch list?") },
+                text = {
+                    Text(
+                        text = "Would you like to clear your watch list?",
+                        color = Color(0xFF000000)
+                    )
+                },
                 shape = RoundedCornerShape(8.dp),
                 confirmButton = {
                     TextButton(onClick = {

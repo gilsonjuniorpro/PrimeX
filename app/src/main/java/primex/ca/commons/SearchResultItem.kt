@@ -26,7 +26,6 @@ import com.skydoves.landscapist.CircularReveal
 import com.skydoves.landscapist.ShimmerParams
 import com.skydoves.landscapist.coil.CoilImage
 import primex.ca.R
-import primex.ca.ui.theme.AppOnPrimaryColor
 import primex.ca.ui.theme.AppPrimaryColor
 import primex.ca.ui.theme.ButtonColor
 import primex.ca.model.Genre as MovieGenre
@@ -61,7 +60,7 @@ fun SearchResultItem(
             CoilImage(
                 imageModel = posterImage,
                 circularReveal = CircularReveal(duration = 1000),
-                previewPlaceholder = R.drawable.popcorn,
+                previewPlaceholder = R.drawable.ic_background_profile,
                 shimmerParams = ShimmerParams(
                     baseColor = AppPrimaryColor,
                     highlightColor = ButtonColor,
@@ -103,10 +102,9 @@ fun SearchResultItem(
                     },
                     modifier = Modifier
                         .clip(shape = RoundedCornerShape(size = 4.dp))
-                        // .background(Color(0XFFC9F964).copy(alpha = 0.75F))
                         .background(Color.LightGray.copy(alpha = 0.2F))
                         .padding(paddingValue.dp),
-                    color = AppOnPrimaryColor.copy(alpha = 0.78F),
+                    color = Color(0xFF000000).copy(alpha = 0.25F),
                     fontSize = 12.sp,
                 )
                 Text(
@@ -117,7 +115,7 @@ fun SearchResultItem(
                     fontWeight = FontWeight.Normal,
                     textAlign = TextAlign.Start,
                     fontSize = 16.sp,
-                    color = AppOnPrimaryColor
+                    color = Color(0xFF000000)
                 )
 
                 Text(
@@ -125,7 +123,7 @@ fun SearchResultItem(
                     fontWeight = FontWeight.Light,
                     textAlign = TextAlign.Center,
                     fontSize = 14.sp,
-                    color = Color.LightGray
+                    color = Color(0xFF000000)
                 )
 
                 Row(
@@ -139,7 +137,7 @@ fun SearchResultItem(
                         config = RatingBarConfig()
                             .style(RatingBarStyle.Normal)
                             .isIndicator(true)
-                            .activeColor(Color(0XFFC9F964))
+                            .activeColor(Color(0xFFFF5722))
                             .hideInactiveStars(false)
                             .inactiveColor(Color.LightGray.copy(alpha = 0.2F))
                             .stepSize(StepSize.HALF)

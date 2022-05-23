@@ -103,7 +103,7 @@ fun MovieDetails(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF180E36))
+            .background(Color(0xFF000000))
     ) {
         ConstraintLayout(
             modifier = Modifier
@@ -191,8 +191,8 @@ fun MovieDetails(
                         brush = Brush.verticalGradient(
                             listOf(
                                 Color.Transparent,
-                                Color(0XFF180E36).copy(alpha = 0.5F),
-                                Color(0XFF180E36)
+                                Color(0XFF000000).copy(alpha = 0.5F),
+                                Color(0XFF000000)
                             ),
                             startY = 0.1F
                         )
@@ -262,7 +262,7 @@ fun MovieDetails(
                     config = RatingBarConfig()
                         .style(RatingBarStyle.Normal)
                         .isIndicator(true)
-                        .activeColor(Color(0XFFC9F964))
+                        .activeColor(Color(0xFFFFEB3B))
                         .hideInactiveStars(false)
                         .inactiveColor(Color.LightGray.copy(alpha = 0.3F))
                         .stepSize(StepSize.HALF)
@@ -365,7 +365,7 @@ fun MovieDetails(
                     dropOff = 0.65F,
                     tilt = 20F
                 ),
-                previewPlaceholder = R.drawable.popcorn,
+                previewPlaceholder = R.drawable.ic_background_profile,
                 contentScale = Crop,
                 circularReveal = CircularReveal(duration = 1000),
                 contentDescription = "movie poster"
@@ -385,7 +385,7 @@ fun MovieDetails(
                 item {
                     MovieGenreChip(
                         background = ButtonColor,
-                        textColor = AppOnPrimaryColor,
+                        textColor = AppPrimaryColor,
                         genre = genre.name
                     )
                 }
@@ -455,7 +455,7 @@ fun MovieDetails(
                                     )
                                 }
                             },
-                            previewPlaceholder = R.drawable.popcorn,
+                            previewPlaceholder = R.drawable.ic_background_profile,
                             contentScale = Crop,
                             circularReveal = CircularReveal(duration = 1000),
                             modifier = Modifier

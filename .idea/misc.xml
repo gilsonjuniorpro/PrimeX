@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.131" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable/ic_user.xml" value="0.1865" />
         <entry key="app/src/main/res/drawable/ic_visibility.xml" value="0.131" />
         <entry key="app/src/main/res/drawable/ic_visibility_off.xml" value="0.131" />
         <entry key="app/src/main/res/drawable/no_match_found.xml" value="0.131" />

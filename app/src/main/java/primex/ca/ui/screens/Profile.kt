@@ -67,7 +67,8 @@ fun Profile(
                 .constrainAs(backButton) {
                     start.linkTo(parent.start, margin = 10.dp)
                     top.linkTo(parent.top, margin = 16.dp)
-                }) {
+                }
+            ) {
             navigator.navigateUp()
         }
 
@@ -81,7 +82,11 @@ fun Profile(
             backgroundColor = ButtonColor,
             contentColor = AppOnPrimaryColor,
             onClick = { }) {
-            Icon(imageVector = Icons.Rounded.Edit, contentDescription = "edit profile")
+            Icon(
+                imageVector = Icons.Rounded.Edit,
+                contentDescription = "edit profile",
+                tint = Color(0xFF000000).copy(alpha = 0.60F)
+            )
         }
 
         Text(
@@ -98,7 +103,7 @@ fun Profile(
         )
 
         Image(
-            painter = painterResource(id = R.drawable.popcorn),
+            painter = painterResource(id = R.drawable.ic_background_profile),
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(0.27F)
@@ -131,7 +136,6 @@ fun Profile(
                 }
         )
 
-        /** Custom boarder -> Reason: The default Image  boarder wasn't working properly */
         Box(
             modifier = Modifier
                 .size(83.5.dp)
@@ -174,7 +178,7 @@ fun Profile(
         }
 
         Text(
-            text = userName("NeatFlix User"),
+            text = userName("Primex User"),
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
             color = AppOnPrimaryColor,
@@ -219,7 +223,7 @@ fun Profile(
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "v: 1.0-beta [dummy profile]",
+                text = "v: 1.0 - [dummy profile]",
                 fontWeight = FontWeight.Light,
                 fontSize = 14.sp,
                 color = AppOnPrimaryColor.copy(alpha = 0.5F)

@@ -70,11 +70,11 @@ fun SearchBar(
             placeholder = {
                 Text(
                     text = "Search...",
-                    color = AppOnPrimaryColor.copy(alpha = 0.8F)
+                    color = Color(0xFF000000)
                 )
             },
             colors = textFieldColors(
-                textColor = Color.White.copy(alpha = 0.78F),
+                textColor = Color.Black.copy(alpha = 0.78F),
                 backgroundColor = Color.Transparent,
                 disabledTextColor = Color.LightGray,
                 focusedIndicatorColor = Color.Transparent,
@@ -105,7 +105,6 @@ fun SearchBar(
                 Row {
                     AnimatedVisibility(visible = searchInput.trim().isNotEmpty()) {
                         IconButton(onClick = {
-
                             focusManager.clearFocus()
                             searchInput = ""
                             viewModel.searchParam.value = ""
@@ -130,7 +129,7 @@ fun SearchBar(
                     }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_search),
-                            tint = AppOnPrimaryColor,
+                            tint = Color(0xFF000000),
                             contentDescription = null
                         )
                     }
