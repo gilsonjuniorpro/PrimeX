@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="primex.ca">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name="primex.ca.util.baseclass.PrimexApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrimeX">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.screens.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PrimeX">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
