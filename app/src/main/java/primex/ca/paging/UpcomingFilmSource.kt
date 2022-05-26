@@ -7,8 +7,7 @@ import primex.ca.model.Film
 import retrofit2.HttpException
 import java.io.IOException
 
-class UpcomingFilmSource(private val api: APIService) :
-    PagingSource<Int, Film>() {
+class UpcomingFilmSource(private val api: APIService) : PagingSource<Int, Film>() {
     override fun getRefreshKey(state: PagingState<Int, Film>): Int? = state.anchorPosition
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Film> {
